@@ -37,6 +37,11 @@ public class TextWebSocketFrame extends WebSocketFrame {
      * @param text
      *            String to put in the frame.
      */
+    /**
+     * TextWebSocketFrame 实现了 ByteBufHolder
+     * fromText 方法返回 ByteBuf
+     * @param text
+     */
     public TextWebSocketFrame(String text) {
         super(fromText(text));
     }

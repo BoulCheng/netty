@@ -648,6 +648,15 @@ public final class Unpooled {
         return copiedBuffer(CharBuffer.wrap(array, offset, length), charset);
     }
 
+    /**
+     *
+     * ALLOC 为 UnpooledByteBufAllocator
+     * enforceHeap = true
+     *
+     * @param buffer
+     * @param charset
+     * @return
+     */
     private static ByteBuf copiedBuffer(CharBuffer buffer, Charset charset) {
         return ByteBufUtil.encodeString0(ALLOC, true, buffer, charset, 0);
     }

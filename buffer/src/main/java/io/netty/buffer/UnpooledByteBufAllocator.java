@@ -77,6 +77,12 @@ public final class UnpooledByteBufAllocator extends AbstractByteBufAllocator imp
                 && PlatformDependent.hasDirectBufferNoCleanerConstructor();
     }
 
+    /**
+     * 非池化堆内存
+     * @param initialCapacity
+     * @param maxCapacity
+     * @return
+     */
     @Override
     protected ByteBuf newHeapBuffer(int initialCapacity, int maxCapacity) {
         return PlatformDependent.hasUnsafe() ?
@@ -139,6 +145,11 @@ public final class UnpooledByteBufAllocator extends AbstractByteBufAllocator imp
             super(alloc, initialCapacity, maxCapacity);
         }
 
+        /**
+         * jdk.version <= 8 直接 new byte[size]
+         * @param initialCapacity
+         * @return
+         */
         @Override
         protected byte[] allocateArray(int initialCapacity) {
             byte[] bytes = super.allocateArray(initialCapacity);

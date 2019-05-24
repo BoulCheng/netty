@@ -159,6 +159,13 @@ public abstract class AbstractByteBufAllocator implements ByteBufAllocator {
         return heapBuffer(initialCapacity, DEFAULT_MAX_CAPACITY);
     }
 
+    /**
+     * Allocate a heap {@link ByteBuf} with the given initial capacity and the given
+     * maximal capacity.
+     * @param initialCapacity
+     * @param maxCapacity
+     * @return
+     */
     @Override
     public ByteBuf heapBuffer(int initialCapacity, int maxCapacity) {
         if (initialCapacity == 0 && maxCapacity == 0) {
